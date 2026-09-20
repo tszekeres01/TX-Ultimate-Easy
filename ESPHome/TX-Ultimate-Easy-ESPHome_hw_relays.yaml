@@ -711,6 +711,17 @@ script:
                   ESP_LOGW("${TAG_HW_RELAYS}", "Relays not initialized yet");
                   return;
                 }
+
+                // Relay changes may overwrite the shared addressable strip. While Night Mode
+                // owns the LEDs, repaint it instead of applying relay indicator states.
+                #ifdef TX_ULTIMATE_EASY_NIGHT_MODE
+                if (sw_night_mode->state) {
+                  ESP_LOGV("${TAG_HW_RELAYS}", "Night mode active - restoring night light");
+                  night_mode_apply->execute();
+                  return;
+                }
+                #endif  // TX_ULTIMATE_EASY_NIGHT_MODE
+
                 for (uint8_t i = 0; i < ${gang_count}; i++) {
                   bool relay_state = false;
                   std::string light_mode;
