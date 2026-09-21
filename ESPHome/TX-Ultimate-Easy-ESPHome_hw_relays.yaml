@@ -173,7 +173,7 @@ light:
     <<: *light_partition_relays
     segments:
       - id: light_full
-        from: ${27 if IS_EU_MODEL else 15}
+        from: ${13 if IS_EU_MODEL else 15}
         to: ${27 if IS_EU_MODEL else 15}
       - id: light_full
         from: ${0 if IS_EU_MODEL else 16}
