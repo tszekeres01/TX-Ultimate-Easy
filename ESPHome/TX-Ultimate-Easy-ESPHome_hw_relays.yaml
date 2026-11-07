@@ -99,6 +99,12 @@ globals:
   default_transition_length: ${default_transition_length}
   gamma_correct: ${LIGHT_GAMMA_CORRECT}
   restore_mode: ${RELAYS_LIGHT_PARTITION_RESTORE_MODE}
+  initial_state:
+    color_mode: RGB
+    red: 100%
+    green: 0%
+    blue: 0%
+    brightness: 70%
 
 light:
   # These lights are used for the physical relays to be shown as lights
