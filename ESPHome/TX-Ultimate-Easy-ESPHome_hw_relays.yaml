@@ -42,7 +42,7 @@ substitutions:
   # You shouldn't change the restore mode as there is a custom restoring engine based on globals.
   # The reason of a custom engine is to address an issue where NVS space was exceeded causing saving/restoring issues
   RELAYS_LIGHT_RESTORE_MODE: RESTORE_DEFAULT_OFF
-  RELAYS_LIGHT_PARTITION_RESTORE_MODE: RESTORE_DEFAULT_OFF
+  RELAYS_LIGHT_PARTITION_RESTORE_MODE: RESTORE_DEFAULT_ON
   RELAYS_EXPOSE_LEDS_TO_HA_RESTORE_MODE: RESTORE_DEFAULT_OFF
   RELAYS_SWITCH_RESTORE_MODE: RESTORE_DEFAULT_OFF
 
@@ -803,7 +803,7 @@ script:
     - "${LIGHT_MODE_BOTTOM_OR_LEFT_TEXT}"
     - "${LIGHT_MODE_TOP_OR_RIGHT_TEXT}"
     - "${LIGHT_MODE_BOTH_TEXT}"
-  initial_option: "${LIGHT_MODE_BOTTOM_OR_LEFT_TEXT}"
+  initial_option: "${LIGHT_MODE_BOTH_TEXT}"
   optimistic: true
   disabled_by_default: false
   entity_category: config

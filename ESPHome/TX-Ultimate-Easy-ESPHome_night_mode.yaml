@@ -160,7 +160,7 @@ switch:
     icon: mdi:vibrate-off
     internal: false
     optimistic: true
-    restore_mode: RESTORE_DEFAULT_ON
+    restore_mode: RESTORE_DEFAULT_OFF
 
   - id: sw_night_mode_suppress_sound
     name: "Night Mode - Suppress Sound"
@@ -169,5 +169,5 @@ switch:
     icon: mdi:volume-off
     internal: false
     optimistic: true
-    restore_mode: RESTORE_DEFAULT_ON
+    restore_mode: RESTORE_DEFAULT_OFF
 ...
