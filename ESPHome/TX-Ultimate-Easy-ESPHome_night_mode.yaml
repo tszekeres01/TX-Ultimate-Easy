@@ -19,9 +19,9 @@ substitutions:
   night_mode_light_default_transition_length: 0s
 
   night_mode_red: '80%'
-  night_mode_green: '50%'
+  night_mode_green: '70%'
   night_mode_blue: '0%'
-  night_mode_brightness: '15%'
+  night_mode_brightness: '20%'
 
 esphome:
   build_flags:
