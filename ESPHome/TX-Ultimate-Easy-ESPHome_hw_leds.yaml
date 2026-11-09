@@ -90,21 +90,9 @@ light:
   - id: light_full
     name: Light - All
     internal: true
-    platform: tx_ultimate_easy
-    output_id: touch_scan_output
-    strip: led_driver_output
-    num_leds: 32
-    scan_leds: ${LIGHT_LED_COUNT}
-    restore_mode: ${LIGHT_FULL_RESTORE_MODE}
-    gamma_correct: ${LIGHT_GAMMA_CORRECT}
-
-  # Only the scan layer writes to this physical output.
-  - id: light_led_driver
-    output_id: led_driver_output
-    internal: true
     num_leds: 32
     pin: GPIO13
-    restore_mode: ALWAYS_OFF
+    restore_mode: ${LIGHT_FULL_RESTORE_MODE}
     platform: esp32_rmt_led_strip
     rgb_order: GRB
     chipset: ws2812
