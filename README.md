@@ -383,6 +383,21 @@ packages:
 > [!NOTE]
 > Use the advanced configuration with caution. Excluding core packages may cause instability or reduced functionality.
 
+#### Touch Scan
+
+While the touch panel is held, three blue LEDs circulate around the perimeter at
+100 ms per step. Releasing the panel (including long-press, swipe and multi-touch
+release) or turning off touch-panel power stops the scan.
+
+The scan is a temporary output layer. Relay actions, click timing, configured
+indicator colors and brightness, night mode, and running light effects continue
+normally underneath it. When the scan stops, the current LED image is displayed
+without restoring an outdated snapshot. Both EU and US layouts are supported.
+
+Use the updated YAML packages and the matching `tx_ultimate_easy` external
+component together; configurations pointing to upstream packages will continue
+using the upstream behavior.
+
 #### LED Gamma Correction
 
 All LED lights use the ESPHome default gamma correction of `2.8`.

@@ -358,6 +358,12 @@ switch:
     internal: false
     entity_category: config
 
+    on_turn_off:
+      - lambda: |-
+          #ifdef TX_ULTIMATE_EASY_HW_LEDS
+          touch_scan_output->set_touch_active(false);
+          #endif
+
 tx_ultimate_easy:
   uart: uart_touch
 
@@ -426,6 +432,16 @@ tx_ultimate_easy:
 
   on_touch_event:
     - lambda: |-
+        #ifdef TX_ULTIMATE_EASY_HW_LEDS
+        // Observe raw events independently of click/long-press/relay handling.
+        // Swipe and multi-touch frames are terminal gesture notifications.
+        if (touch.state == esphome::tx_ultimate_easy::TOUCH_STATE_PRESS) {
+          if (touch.x >= 0 && touch.x <= ${TOUCH_POSITION_MAX_VALUE})
+            touch_scan_output->set_touch_active(true);
+        } else {
+          touch_scan_output->set_touch_active(false);
+        }
+        #endif
         ESP_LOGD("${TAG_HW_TOUCH}", "Touch event:");
         ESP_LOGD("${TAG_HW_TOUCH}", "  State:    %i (%s)", touch.state, touch.state_str.c_str());
         ESP_LOGD("${TAG_HW_TOUCH}", "  Position: %i", touch.x);
